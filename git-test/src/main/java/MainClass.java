@@ -6,4 +6,9 @@ public class MainClass {
         System.out.println("git-test");
         System.out.println("git-test");
     }
+    public static void modify(){
+        System.out.println("第二次修改");
+    }
+
+
 }
