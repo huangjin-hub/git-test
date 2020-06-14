@@ -1,0 +1,28 @@
+spring:
+  thymeleaf:
+    cache: false
+  datasource:
+    #driverClassName
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 1234
+    #/// 代表默认地址 localhost:3306
+    url: jdbc:mysql:///woniumalls?useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
+    #自动以数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 127.0.0.1
+ybatis:
+  config-location: classpath:mybatis/mybatis-config.xml
+  mapper-locations: classpath:mybatis/mappers/*.xml
+server:
+  servlet:
+    context-path: /per
+  port: 8081
+debug: true
+logging:
+  level:
+    com:
+      woniu:
+        permission:
+          mapper: debug

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+<body>
+<h1>vue</h1>
+<div id="app">
+
+    <div v-bind:title="shijian">{{message}}</div>
+    <div v-if="num==1">我是一</div>
+    <div v-else="num">我是else</div>
+    <div v-for="(name,index) in params">
+        <li>{{index}}--{{name}}</li>
+    </div>
+    <!--<div>请输入： <input id="imputId" v-on:change="showfunc()"><span>{{changeText}}</span></div>-->
+    <div>请输入： <input v-model="changeText"><span>{{changeText}}</span></div>
+    <div>
+        <li>{{info.name}}</li>
+    </div>
+</div>
+
+
+<script>
+    var app = new Vue({
+        el: "#app",
+        data() {
+            return {
+                info: {
+                    name:null
+                }
+            }
+        },
+        data: {
+            message: "hello word",
+            shijian: "页面加载于" + new Date().toLocaleDateString(),
+            num: 1,
+            params: [
+                {cname: "小红"},
+                {cname: "小明"},
+                {cname: "小张"},
+                {cname: "小王"}
+            ],
+            changeText: "",
+
+        },
+        methods: {
+            // showfunc:function(){
+            //    app.changeText=$("#imputId").val();
+            // }
+        },
+
+        mounted() {
+            axios.get("../jsondr/data.json").then(response => (this.info = response.data));
+        }
+    });
+
+</script>
+</body>
+</html>

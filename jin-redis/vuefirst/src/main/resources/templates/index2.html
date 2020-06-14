@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+<body>
+<h1>vue</h1>
+<div id="app">
+    <todo>
+        <todo-title slot="todo-title" :tit="title"></todo-title>
+        <todo-items slot="todo-items" v-for="item in todoitems" :ite="item"></todo-items>
+    </todo>
+</div>
+<script>
+    Vue.component("todo", {
+        template: '<div>\
+                    <slot name="todo-title"></slot>\
+                    <ul>\
+                        <slot name="todo-items"></slot>\
+                    </ul>\
+                  </div>'
+    });
+    Vue.component("todo-title", {
+        props: ['tit'],
+        template: '<div>{{tit}}</div>',
+        methods:function () {
+        }
+    });
+    Vue.component("todo-items", {
+        props: ['ite'],
+        template: '<li id="sdad">{{ite}}</li>'
+    });
+
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            title: "游戏",
+            todoitems: ["真三国无双", "鬼泣4", "闪客2"]
+        }
+    });
+</script>
+</body>
+</html>

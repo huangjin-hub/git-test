@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/vue/2.6.11/vue.min.js"></script>
+<script src="https://cdn.bootcss.com/axios/0.19.2/axios.min.js"></script>
+<body>
+<h1>vue</h1>
+<div id="app">
+    <p>时间：{{currentTime1()}}</p>
+    <p>时间：{{currentTime2}}</p>
+</div>
+
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+
+        data:{
+
+        },
+        methods:{
+            currentTime1:function () {
+                return Date.now();
+            }
+        },
+        computed:{
+            currentTime2:function () {
+                return Date.now();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

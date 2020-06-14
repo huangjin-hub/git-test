@@ -1,0 +1,14 @@
+<template>
+  <h1>Login首页</h1>
+
+</template>
+
+<script>
+  export default {
+    name: "Main"
+  }
+</script>
+
+<style scoped>
+
+</style>

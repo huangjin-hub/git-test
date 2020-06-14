@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.woniu.permission.mapper.UserMapper">
+    
+    <select id="selectUserList" parameterType="string" resultType="user">
+        select * from t_user
+
+        <where>
+            <if test="value != null and value != ''">
+                and username like '%${value}%'
+            </if>
+        </where>
+        order by createtime asc
+    </select>
+    
+    <insert id="insertUser" parameterType="user">
+        insert into t_user (username,password,tel,email,createtime,modifytime)
+        values
+        (#{username},'123456',#{tel},#{email},now(),now())
+    </insert>
+    
+    <insert id="insertUserRole">
+      insert into t_userrole (userid ,roleid) values
+      (#{userid} ,#{roleid})
+    </insert>
+    
+    
+</mapper>
